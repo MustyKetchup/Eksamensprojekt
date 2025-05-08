@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %}
+
+<h1>Shop</h1>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+{% if Products %}
+    {% for product in Products %}
+        <div class="product">
+            <h3>{{ product[1] }}</h3>
+            <p>Price: ${{ product[2] }}</p>
+            <p>Quantity: {{ product[3] }}</p>
+            <form method="POST" action="{{ url_for('kurv') }}">
+                <input type="hidden" name="product_id" value="{{ product[0] }}">
+                <button type="submit" class="buy-button">Buy</button>
+            </form>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No products available.</p>
+{% endif %}
+
+
+
+{% endblock %}

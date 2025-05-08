@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+</head>
+<body>
+<div class="container">
+    <h2>Opret ny konto</h2>
+    <form method="POST" action="/Create">
+
+        <div class="form-group">
+            <label for="username">Brugernavn</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Adgangskode</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Opret konto</button>
+    </form>
+    <div class="login-link">
+        <p>Har du allerede en konto? <a href="/Login">Log ind her</a></p>
+    </div>
+</div>
+</body>
+{% endblock %}

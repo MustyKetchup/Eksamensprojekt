@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %}
+
+
+<h1>Din Kurv</h1>
+{% if User_basket %}
+    <table>
+        <tr>
+            <th>Produktnavn</th>
+            <th>Antal</th>
+        </tr>
+        {% for item in User_basket %}
+            <tr>
+                <td>{{ item[1] }}</td> <!-- ProductName -->
+                <td>{{ item[0] }}</td> <!-- ProductQuantity -->
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>Din kurv er tom.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta name = "viewport" content="initial-scale=1, width=device-width">
+        <title>SØSTERNEMIGRÆNE</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        {% if request.path == '/' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        {% elif request.path == '/Login' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+        {% elif request.path == '/Create' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='create.css') }}">
+        {% elif request.path == '/shop' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='shop.css') }}">
+        {% elif request.path == '/kurv' %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='kurv.css') }}">
+        {% endif %}
+
+    </head>
+    <body>
+        {% block body %}
+
+                <!--Anden fil her -->
+                
+        {% endblock %}
+    </body>
+</html>
